@@ -14,7 +14,7 @@ public class contact{
        return number ;
    }
    public String getEmail(){
-       return email;
+       return email.toLowerCase();
    }
    public void setNumber(String num){
        this.number = num ;
@@ -27,6 +27,6 @@ public class contact{
    }
    public String toString(){
        return "Name : "+name+"Email : "+email + "Number : "+number;
-   }
+   } //hehe ye sab kya ho raha hai kuch samajh me nhi aa raha hai
 
 }
