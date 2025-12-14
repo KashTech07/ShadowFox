@@ -27,6 +27,6 @@ public class contact{
    }
    public String toString(){
        return "Name : "+name+"Email : "+email + "Number : "+number;
-   } //hehe ye sab kya ho raha hai kuch samajh me nhi aa raha hai
+   }
 
 }
