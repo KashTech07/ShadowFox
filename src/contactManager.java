@@ -35,7 +35,6 @@ public class contactManager {
           static void addContact(){
               contact c1 = new contact();
               System.out.println("Name : ");
-              c1.name=
 
           }
 
