@@ -2,6 +2,9 @@ public class contact{
    private String number ;
    private String name;
    private String email ;
+   public contact(){
+
+   }
    public contact(String num , String name , String mail){
        this.number = num;
        this.name = name ;

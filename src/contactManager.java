@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner ;
 import java.util.*;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class contactManager {
                 addContact();
             }
             else if(choice==2){
-                displayContact();
+                displayContacts();
             }
             else if(choice==3){
                 updateContact();
@@ -35,6 +36,22 @@ public class contactManager {
           static void addContact(){
               contact c1 = new contact();
               System.out.println("Name : ");
+              String n = sc.nextLine();
+              c1.setName(n);
+              System.out.println("Phone Number : ");
+              String p = sc.nextLine();
+              c1.setNumber(p);
+              System.out.println("Email : ");
+              String e = sc.nextLine();
+              c1.setEmail(e);
+              list.add(c1);
+    }
+          static void displayContacts(){
+              for(contact c : list){
+                  System.out.println(c.toString());
+              }
+          }
+          static void updateContact(){
 
           }
 
