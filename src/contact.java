@@ -29,7 +29,7 @@ public class contact{
        this.email = email;
    }
    public String toString(){
-       return "Name : "+name+"Email : "+email + "Number : "+number;
+       return  "Name: " + name + " | Email: " + email + " | Phone: " + number;
    }
 
 }
