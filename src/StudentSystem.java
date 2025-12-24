@@ -30,6 +30,7 @@ public class StudentSystem {
         frame.add(addButton);
 
         frame.setVisible(true);
+        //layout done
 
     }
 }
