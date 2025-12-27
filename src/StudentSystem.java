@@ -1,7 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+
 
 public class StudentSystem {
+    static ArrayList<Student> students = new ArrayList<>();
+
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("Student Information System");
         frame.setSize(800,400);
@@ -31,6 +36,28 @@ public class StudentSystem {
 
         frame.setVisible(true);
         //layout done
+        addButton.addActionListener(e -> {
+            try {
+                int id = Integer.parseInt(idField.getText());
+                String name = nameField.getText();
+                int age = Integer.parseInt(ageField.getText());
+                String course = courseField.getText();
 
-    }
-}
+                Student student = new Student(id, name, age, course);
+
+                JOptionPane.showMessageDialog(frame,
+                        "Student Added:\n" +
+                                "ID: " + student.id +
+                                "\nName: " + student.name +
+                                "\nAge: " + student.age +
+                                "\nCourse: " + student.course);
+
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(frame,
+                        "Please enter valid ID and Age",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        });
+        students.add(Student);
+
