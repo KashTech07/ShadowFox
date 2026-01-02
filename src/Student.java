@@ -10,4 +10,11 @@ public class Student{
         this.age = age ;
         this.course=course;
     }
+    @Override
+    public String toString() {
+        return "ID: " + id +
+                ", Name: " + name +
+                ", Age: " + age +
+                ", Course: " + course;
+    }
 }

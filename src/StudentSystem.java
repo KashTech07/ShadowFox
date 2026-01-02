@@ -2,29 +2,34 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-
 public class StudentSystem {
+
     static ArrayList<Student> students = new ArrayList<>();
 
-
     public static void main(String[] args) {
+
         JFrame frame = new JFrame("Student Information System");
-        frame.setSize(800,400);
+        frame.setSize(800, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
-        //frame.setVisible(true);
-        //layout
         frame.setLayout(new FlowLayout());
-        JLabel idLable = new JLabel("ID:");
+
+        JLabel idLabel = new JLabel("ID:");
         JTextField idField = new JTextField(10);
-        JLabel nameLabel = new JLabel("Name :");
+
+        JLabel nameLabel = new JLabel("Name:");
         JTextField nameField = new JTextField(10);
-        JLabel ageLabel = new JLabel("Age :");
+
+        JLabel ageLabel = new JLabel("Age:");
         JTextField ageField = new JTextField(10);
-        JLabel courseLabel = new JLabel("Course : ");
+
+        JLabel courseLabel = new JLabel("Course:");
         JTextField courseField = new JTextField(10);
+
         JButton addButton = new JButton("Add Student");
-        frame.add(idLable);
+        JButton viewButton = new JButton("View Students"); // ✅ FIX
+
+        frame.add(idLabel);
         frame.add(idField);
         frame.add(nameLabel);
         frame.add(nameField);
@@ -33,9 +38,11 @@ public class StudentSystem {
         frame.add(courseLabel);
         frame.add(courseField);
         frame.add(addButton);
+        frame.add(viewButton);
 
         frame.setVisible(true);
-        //layout done
+
+        // ADD STUDENT
         addButton.addActionListener(e -> {
             try {
                 int id = Integer.parseInt(idField.getText());
@@ -44,13 +51,16 @@ public class StudentSystem {
                 String course = courseField.getText();
 
                 Student student = new Student(id, name, age, course);
+                students.add(student);
 
                 JOptionPane.showMessageDialog(frame,
-                        "Student Added:\n" +
-                                "ID: " + student.id +
-                                "\nName: " + student.name +
-                                "\nAge: " + student.age +
-                                "\nCourse: " + student.course);
+                        "Student Added Successfully!");
+
+                // Clear fields
+                idField.setText("");
+                nameField.setText("");
+                ageField.setText("");
+                courseField.setText("");
 
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(frame,
@@ -59,5 +69,24 @@ public class StudentSystem {
                         JOptionPane.ERROR_MESSAGE);
             }
         });
-        students.add(Student);
+
+        // VIEW STUDENTS
+        viewButton.addActionListener(e -> {
+            if (students.isEmpty()) {
+                JOptionPane.showMessageDialog(frame, "No students added yet.");
+                return;
+            }
+
+            StringBuilder data = new StringBuilder();
+            for (Student s : students) {
+                data.append(s).append("\n");
+            }
+
+            JOptionPane.showMessageDialog(frame,
+                    data.toString(),
+                    "Student List",
+                    JOptionPane.INFORMATION_MESSAGE);
+        });
+    }
+}
 
